@@ -34,6 +34,10 @@ class MapController extends Controller
 
     }
 
+    public function bis($id){
+        return Bis::find($id);
+    }
+
     public function lat($id){
         //die("LOL");
         $user = Bis::find($id);
@@ -49,6 +53,86 @@ class MapController extends Controller
         //die($user->status);
         return $user->status;
     }
+
+    public function otw(){
+        $user = Bis::all();
+        $i = 1;
+        $sung = "";
+        foreach ($user as $key) {
+            if($key->status == "On the way"){
+                $sung .= "<tr>
+                        <td>". $key->ID ."</td>
+                        <td>". $key->jalur ."</td>
+                        <td>". $key->keterangan ."</td>
+                        <td>". $key->isi ."</td>
+                        <td>". $key->keterangan2 ."</td>
+                        <td> 
+                            <div class=\"pull-right\">
+                                <a onclick=\"myFunction('". $key->ID ."')\" title=\"Search\"><i class=\"icon-search3\"></i></a> &nbsp
+                                <a onclick=\"myModal('". $key->ID ."')\" title=\"Detail\" data-toggle=\"modal\" data-target=\"#myModal\"><i class=\"icon-vcard\"></i></a>       
+                            </div>
+                        </td>
+                    </tr>";
+                $i++;
+                            
+            }
+        }
+        return $sung;
+    }
+
+    public function op(){
+        $user = Bis::all();
+        $i = 1;
+        $sung = "";
+        foreach ($user as $key) {
+            if($key->status == "On problem"){
+                $sung .= "<tr>
+                        <td>". $key->ID ."</td>
+                        <td>". $key->jalur ."</td>
+                        <td>". $key->keterangan ."</td>
+                        <td>". $key->isi ."</td>
+                        <td>". $key->keterangan2 ."</td>
+                        <td> 
+                            <div class=\"pull-right\">
+                                <a onclick=\"myFunction('". $key->ID ."')\" title=\"Search\"><i class=\"icon-search3\"></i></a> &nbsp
+                                <a onclick=\"myModal('". $key->ID ."')\" title=\"Detail\" data-toggle=\"modal\" data-target=\"#myModal\"><i class=\"icon-vcard\"></i></a>       
+                            </div>
+                        </td>
+                    </tr>";
+                $i++;
+                            
+            }
+        }
+        return $sung;
+    }
+
+    public function oa(){
+        $user = Bis::all();
+        $i = 1;
+        $sung = "";
+        foreach ($user as $key) {
+            if($key->status == "On arrive"){
+                $sung .= "<tr>
+                        <td>". $key->ID ."</td>
+                        <td>". $key->jalur ."</td>
+                        <td>". $key->keterangan ."</td>
+                        <td>". $key->isi ."</td>
+                        <td>". $key->keterangan2 ."</td>
+                        <td> 
+                            <div class=\"pull-right\">
+                                <a onclick=\"myFunction('". $key->ID ."')\" title=\"Search\"><i class=\"icon-search3\"></i></a> &nbsp
+                                <a onclick=\"myModal('". $key->ID ."')\" title=\"Detail\" data-toggle=\"modal\" data-target=\"#myModal\"><i class=\"icon-vcard\"></i></a>       
+                            </div>
+                        </td>
+                    </tr>";
+                $i++;
+                            
+            }
+        }
+        return $sung;
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

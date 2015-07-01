@@ -60,7 +60,8 @@ src="http://maps.googleapis.com/maps/api/js">
 					<td>{{ $key->keterangan2 }}</td>
 					<td> 
 						<div class="pull-right">
-							<a onclick="myFunction('{{ $key->ID }}')" title="Search"><i class="icon-search3"></i></a>	
+							<a onclick="myFunction('{{ $key->ID }}')" title="Search"><i class="icon-search3"></i></a>	&nbsp
+							<a onclick="myModal('{{ $key->ID }}')" title="Detail" data-toggle="modal" data-target="#myModal"><i class="icon-vcard"></i></a>	
 						</div>
 					</td>
 				</tr>
@@ -102,7 +103,8 @@ src="http://maps.googleapis.com/maps/api/js">
 					<td>{{ $key->keterangan2 }}</td>
 					<td> 
 						<div class="pull-right">
-							<a onclick="myFunction('{{ $key->ID }}')" title="Search"><i class="icon-search3"></i></a>	
+							<a onclick="myFunction('{{ $key->ID }}')" title="Search"><i class="icon-search3"></i></a> &nbsp
+							<a onclick="myModal('{{ $key->ID }}')" title="Detail" data-toggle="modal" data-target="#myModal"><i class="icon-vcard"></i></a>		
 						</div>
 					</td>
 				</tr>
@@ -144,7 +146,8 @@ src="http://maps.googleapis.com/maps/api/js">
 					<td>{{ $key->keterangan2 }}</td>
 					<td> 
 						<div class="pull-right">
-							<a onclick="myFunction('{{ $key->ID }}')" title="Search"><i class="icon-search3"></i></a>	
+							<a onclick="myFunction('{{ $key->ID }}')" title="Search"><i class="icon-search3"></i></a> &nbsp
+							<a onclick="myModal('{{ $key->ID }}')" title="Detail" data-toggle="modal" data-target="#myModal"><i class="icon-vcard"></i></a>		
 						</div>
 					</td>
 				</tr>
@@ -295,8 +298,21 @@ src="http://maps.googleapis.com/maps/api/js">
 	    
 	}
 
+	function myModal(id) {
+	    $.get('bis/' + id, function( data ) {
+			document.getElementById("d_id").innerHTML = data.ID;
+			document.getElementById("d_tujuan").innerHTML = data.keterangan;
+			document.getElementById("d_jalur").innerHTML = data.jalur;
+			document.getElementById("d_klasifikasi").innerHTML = data.klasifikasi;
+			document.getElementById("d_nama").innerHTML = data.nama;
+			document.getElementById("d_hp").innerHTML = data.hp;
+			document.getElementById("d_status").innerHTML = data.status;
+			document.getElementById("d_keterangan").innerHTML = data.keterangan2;
+		});
+	}
+
 	$(document).ready(function() {
-		$(".icon-vcard").click(function(event){
+		$(".icon-vscard").click(function(event){
 			alert("masuk");
 			$.get('bis/' + event.target.id, function( data ) {
 				document.getElementById("d_id").innerHTML = data.ID;
