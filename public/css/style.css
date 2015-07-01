@@ -1,0 +1,14 @@
+.table-custom-otw > thead:first-child > tr:first-child > th{
+	background-color: #3CA2BB;
+	color: white;
+}
+
+.table-custom-op > thead:first-child > tr:first-child > th{
+	background-color: #D65C4F;
+	color: white;
+}
+
+.table-custom-oa > thead:first-child > tr:first-child > th{
+	background-color: #65B688;
+	color: white;
+}
